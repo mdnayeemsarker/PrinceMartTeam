@@ -386,7 +386,7 @@ public class SignupActivity extends AppCompatActivity {
                     if (!object.getBoolean(Constant.ERROR)) {
                         setSnackBar(object.getString(Constant.MESSAGE), "Ok", "none");
                         startActivity(new Intent(activity, LoginActivity.class));
-                        session.createUserLoginSession(name, email, "0"+mobile, password, "88", referralCode);
+                        session.createUserLoginSession(name, email, mobile, password, "88", referralCode);
                     }else {
                         setSnackBar("Something went wrong, Please try again latter.", "OK", "none");
                     }
