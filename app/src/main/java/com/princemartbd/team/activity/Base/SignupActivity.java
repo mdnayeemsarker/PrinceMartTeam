@@ -211,7 +211,7 @@ public class SignupActivity extends AppCompatActivity {
 //                }
 //            }
 //        }, activity, Constant.AUTH_LOGIN_URL, params, true);
-        String phoneNumber = ("+" + session.getData(Constant.COUNTRY_CODE) + "0" + mobile);
+        String phoneNumber = ("+" + session.getData(Constant.COUNTRY_CODE) + mobile);
         generateOTP(phoneNumber);
     }
 
@@ -374,7 +374,7 @@ public class SignupActivity extends AppCompatActivity {
         params.put(Constant.PAGE, Constant.REGISTER);
         params.put(Constant.NAME, name);
         params.put(Constant.EMAIL, email);
-        params.put(Constant.MOBILE, "0"+mobile);
+        params.put(Constant.MOBILE, mobile);
         params.put(Constant.PASSWORD, password);
         params.put(Constant.COUNTRY_CODE, "88");
         params.put(Constant.TYPE, type);

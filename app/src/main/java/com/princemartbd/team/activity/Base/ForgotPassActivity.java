@@ -76,9 +76,7 @@ public class ForgotPassActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("");
         }
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
-        toolbar.setNavigationOnClickListener(v -> {
-            goBack();
-        });
+        toolbar.setNavigationOnClickListener(v -> goBack());
 
         lytVerify = findViewById(R.id.lytVerify);
         lytResetPass = findViewById(R.id.lytResetPass);
@@ -120,13 +118,13 @@ public class ForgotPassActivity extends AppCompatActivity {
 
         Map<String, String> params = new HashMap<>();
         params.put(Constant.TYPE, Constant.VERIFY_USER);
-        params.put(Constant.MOBILE, "0"+mobile);
+        params.put(Constant.MOBILE, mobile);
 
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
                     JSONObject object = new JSONObject(response);
-                    String phoneNumber = ("+" + session.getData(Constant.COUNTRY_CODE) + "0" + mobile);
+                    String phoneNumber = ("+" + session.getData(Constant.COUNTRY_CODE) + mobile);
                     if (!object.getBoolean(Constant.ERROR)) {
                         generateOTP(phoneNumber);
                     } else {
@@ -313,7 +311,7 @@ public class ForgotPassActivity extends AppCompatActivity {
         } else {
             Map<String, String> params = new HashMap<>();
             params.put(Constant.TYPE, Constant.FORGOT_PASSWORD_MOBILE);
-            params.put(Constant.MOBILE, "0"+mobile);
+            params.put(Constant.MOBILE, mobile);
             params.put(Constant.PASSWORD, reset_c_psw);
             ApiConfig.RequestToVolley((result, response) -> {
                 if (result) {
