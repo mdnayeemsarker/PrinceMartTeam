@@ -532,6 +532,7 @@
     <string name="withdraw_history">Withdraw History</string>
     <string name="_00_00">00.00</string>
     <string name="affiliate">Affiliate Section</string>
+    <string name="history">History</string>
     <string name="transaction_section">Transaction Section</string>
     <string name="coordinator">Coordinator</string>
     <string name="you_have_not_enough_amount_please_check_your_balance">Oops.!. You have not enough Amount, Please Check your Balance</string>
@@ -546,4 +547,5 @@
     <string name="about_company">Company</string>
     <string name="text_balance">Balance</string>
     <string name="retry">Retry</string>
+    <string name="statement">Statement</string>
 </resources>

@@ -13,24 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.princemartbd.team.R;
 import com.princemartbd.team.helper.Constant;
-import com.princemartbd.team.model.ManTranModel;
+import com.princemartbd.team.model.StatementModel;
 
 import java.util.ArrayList;
 
-public class ManTranAdapter extends RecyclerView.Adapter<ManTranAdapter.ViewHolder> {
-    
+public class StatementAdapter extends RecyclerView.Adapter<StatementAdapter.ViewHolder>{
     private final Activity activity;
-    private final ArrayList<ManTranModel> manTranModelArrayList;
+    private final ArrayList<StatementModel> statementModelArrayList;
 
-    public ManTranAdapter(Activity activity, ArrayList<ManTranModel> manTranModelArrayList) {
+    public StatementAdapter(Activity activity, ArrayList<StatementModel> statementModelArrayList) {
         this.activity = activity;
-        this.manTranModelArrayList = manTranModelArrayList;
+        this.statementModelArrayList = statementModelArrayList;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lyt_all_transactions, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lyt_statement_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -38,11 +37,11 @@ public class ManTranAdapter extends RecyclerView.Adapter<ManTranAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ManTranModel model = manTranModelArrayList.get(position);
+        StatementModel model = statementModelArrayList.get(position);
 
         holder.itemId.setText("Id. #" + model.getId());
         holder.amount.setText("৳" + model.getAmount());
-        holder.postAmount.setText("-> ৳" + model.getPost_balance());
+        holder.postAmount.setText(" -> ৳" + model.getPost_balance());
         holder.transactionId.setText("Trx ID. #" + model.getTrx());
         holder.dateAndTime.setText("Date: " + model.getDate_created());
         if (model.getLast_updated().equals("null")){
@@ -51,17 +50,13 @@ public class ManTranAdapter extends RecyclerView.Adapter<ManTranAdapter.ViewHold
             holder.updateDateAndTime.setText(model.getLast_updated());
         }
 
-        if (model.getTrx_type().equals("affiliaters")){
-            holder.message.setText(Constant.CREDIT_MESSAGE);
-//            holder.message.setBackgroundColor(getResources().getColor(R.color.primary_green));
-            holder.message.setBackgroundColor(ContextCompat.getColor(activity, R.color.primary_green));
-        }else if (model.getTrx_type().equals("withdraw")){
-            holder.message.setText(Constant.DEBIT);
-            holder.message.setBackgroundColor(ContextCompat.getColor(activity, android.R.color.holo_blue_dark));
+        if (model.getTrx_type().equals("seller")){
+            holder.message.setText("Merchant");
         }else {
-            holder.message.setText("N/A");
-            holder.message.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+            holder.message.setText("Customer");
         }
+        holder.message.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
+
 
         switch (model.getStatus()) {
             case "0":
@@ -81,10 +76,10 @@ public class ManTranAdapter extends RecyclerView.Adapter<ManTranAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return manTranModelArrayList.size();
+        return statementModelArrayList.size();
     }
 
-    protected static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView itemId;
         private final TextView amount;
@@ -108,4 +103,5 @@ public class ManTranAdapter extends RecyclerView.Adapter<ManTranAdapter.ViewHold
             status = itemView.findViewById(R.id.statusId);
         }
     }
+
 }

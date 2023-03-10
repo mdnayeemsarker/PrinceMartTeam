@@ -2,16 +2,19 @@ package com.princemartbd.team.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.princemartbd.team.R;
+import com.princemartbd.team.activity.Base.HistoryActivity;
 import com.princemartbd.team.helper.Constant;
 import com.princemartbd.team.model.AllMarketerModel;
 
@@ -64,6 +67,13 @@ public class AllMarketerAdapter extends RecyclerView.Adapter<AllMarketerAdapter.
                 holder.status.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary));
                 break;
         }
+
+        holder.rootCV.setOnClickListener(v -> {
+            Intent intent = new Intent(activity, HistoryActivity.class);
+            intent.putExtra("userType", allMarketerModelArrayList.get(position).getId());
+            activity.startActivity(intent);
+        });
+
     }
 
     @Override
@@ -82,6 +92,7 @@ public class AllMarketerAdapter extends RecyclerView.Adapter<AllMarketerAdapter.
         private final TextView referralCode;
         private final TextView balance;
         private final TextView status;
+        private final CardView rootCV;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -95,6 +106,7 @@ public class AllMarketerAdapter extends RecyclerView.Adapter<AllMarketerAdapter.
             dateAndTime = itemView.findViewById(R.id.dateAndTimeId);
             balance = itemView.findViewById(R.id.balanceId);
             status = itemView.findViewById(R.id.statusId);
+            rootCV = itemView.findViewById(R.id.rootCV);
         }
     }
 }

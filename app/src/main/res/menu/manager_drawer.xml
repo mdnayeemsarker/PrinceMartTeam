@@ -22,10 +22,14 @@
             </group>
         </menu>
     </item>
-
     <item android:title="@string/transaction_section">
         <menu>
             <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/navStatement"
+                    android:title="@string/statement"
+                    app:showAsAction="never" />
+
                 <item
                     android:id="@+id/navWithdrawRequestId"
                     android:title="@string/withdraw_request"

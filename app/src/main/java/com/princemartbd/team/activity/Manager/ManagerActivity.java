@@ -27,10 +27,9 @@ import com.princemartbd.team.helper.ApiConfig;
 import com.princemartbd.team.helper.Constant;
 import com.princemartbd.team.helper.Session;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import org.json.JSONArray;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -348,6 +347,10 @@ public class ManagerActivity extends AppCompatActivity implements NavigationView
                 drawer.closeDrawer(GravityCompat.START);
                 nextPage(Constant.ManProfileActivity);
                 break;
+            case R.id.navStatement:
+                drawer.closeDrawer(GravityCompat.START);
+                nextPage(Constant.MANSTATEMENTActivity);
+                break;
             case R.id.navPrivacyPolicyId:
                 drawer.closeDrawer(GravityCompat.START);
                 if (ApiConfig.isConnected(activity)) {
@@ -403,6 +406,9 @@ public class ManagerActivity extends AppCompatActivity implements NavigationView
                     break;
                 case Constant.ManProfileActivity:
                     intent = new Intent(activity, ManProfileActivity.class);
+                    break;
+                case Constant.MANSTATEMENTActivity:
+                    intent = new Intent(activity, ManSummeryActivity.class);
                     break;
             }
             startActivity(intent);

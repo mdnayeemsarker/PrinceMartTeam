@@ -7,13 +7,13 @@ public class Constant {
     public static String APP_UPDATE_URL = MainBaseUrl + "apps.php";
 //    public static final String MainBaseUrl = "https://beta.princemartbd.com/";
 
-    //Admin panel url or ecart multivendor website url (if exist)
     public static final String WebSiteUrl = "https://princemartbd.com/";
 
     //set your jwt secret key here...key must same in PHP and Android
     public static final String JWT_KEY = "BFbHzx@?6mU}_wv8Q2q~A*&aWp%39=GTVf!;t)e(Ey{<j^LR:,";
 
     //MODIFICATION PART END
+
     public static final String BaseUrl = MainBaseUrl + "affiliate/";
     public static final String BaseUrl_API_Firebase = MainBaseUrl + "api-firebase/";
 
@@ -25,7 +25,9 @@ public class Constant {
     public static final String ALL_MARKETERS = BaseUrl + "manage_affiliaters.php";
     public static final String ALL_TRANSACTIONS = BaseUrl + "manage_transactions.php";
 
-    public static final String REGISTER_URL = BaseUrl + "user-registration.php";
+    public static final String MANAGE_TRANSACTIONS_URL = BaseUrl + "manage_transactions.php";
+    public static final String SUMMARY_URL = BaseUrl + "summary.php";
+    public static final String HISTORY_URL = BaseUrl + "team.php";
     public static final String FORGET_PASSWORD_URL = BaseUrl + "auth.php";
     public static final String SMS_SEND_URL = BaseUrl_API_Firebase + "sms.php";
     public static final String SETTING_URL = BaseUrl_API_Firebase + "settings.php";
@@ -45,9 +47,7 @@ public class Constant {
     public static final String BALANCE = "balance";
     public static final String COUNTRY_CODE = "country_code";
     public static final String REFERRAL_CODE = "referral_code";
-    public static final String FRIEND_CODE = "friends_code";
     public static final String TYPE_TRANSACTION = "transactions";
-    public static final String CREDIT = "credit";
     public static final String TYPE = "type";
     public static final String TYPE_ID = "type_id";
     public static final String LAST_UPDATED = "last_updated";
@@ -70,7 +70,6 @@ public class Constant {
     public static final String ADD_AFFILIATERS = "add_affiliater";
     public static final String FORGOT_PASSWORD_MOBILE = "forgot-password-mobile";
     public static final String DATA = "data";
-    public static final String CURRENCY = "currency";
     public static final String AMOUNT = "amount";
     public static final String MESSAGE = "message";
     public static final String FROM = "from";
@@ -82,7 +81,7 @@ public class Constant {
     public static final String MARKETER = "marketer";
     public static final String TRANSACTION = "Transactions";
     public static final String ManProfileActivity = "ManProfileActivity";
-    public static final String WebViewActivity = "WebViewActivity";
+    public static final String MANSTATEMENTActivity = "ManSTATEMENTActivity";
     public static final String API_KEY = "API_KEY";
     public static final String NOT_APPROVED = "NOT APPROVED";
     public static final String APPROVED = "APPROVED";
@@ -99,7 +98,6 @@ public class Constant {
     public static final String ADD_MARKETER = "add_marketer";
     public static final String MAN_WITHDRAW = "ManWithHistoryActivity";
     public static final String VERIFY_USER = "verify-user";
-    public static final String WEB_VIEW = "web_view";
     public static final String ManWithDashboard = "ManWithDashboardActivity";
     public static final String MarWithHistoryActivity = "MarWithHistoryActivity";
     public static final String MarWithdrawActivity = "MarWithdrawActivity";

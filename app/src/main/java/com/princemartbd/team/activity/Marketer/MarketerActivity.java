@@ -21,6 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.princemartbd.team.BuildConfig;
 import com.princemartbd.team.R;
+import com.princemartbd.team.activity.Base.HistoryActivity;
 import com.princemartbd.team.activity.Base.WebViewActivity;
 import com.princemartbd.team.helper.ApiConfig;
 import com.princemartbd.team.helper.Constant;
@@ -275,6 +276,18 @@ public class MarketerActivity extends AppCompatActivity implements NavigationVie
             case R.id.navTransactionHistoryId:
                 drawer.closeDrawer(GravityCompat.START);
                 nextPage(Constant.MarTransactionsActivity);
+                break;
+            case R.id.navMarStatement:
+                drawer.closeDrawer(GravityCompat.START);
+                if (ApiConfig.isConnected(activity)) {
+                    startActivity(new Intent(activity, MarSummeryActivity.class).putExtra("userType", "self"));
+                }
+                break;
+            case R.id.navMarHistory:
+                drawer.closeDrawer(GravityCompat.START);
+                if (ApiConfig.isConnected(activity)) {
+                    startActivity(new Intent(activity, HistoryActivity.class).putExtra("userType", "self"));
+                }
                 break;
             case R.id.navPrivacyPolicyId:
                 drawer.closeDrawer(GravityCompat.START);
